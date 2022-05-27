@@ -49,7 +49,7 @@ const Home = ({ posts }: props) => {
       </div>
       <hr className=" mx-auto border border-yellow-500 my-5  max-w-sm md:max-w-2xl" />
       <div className="flex items-center justify-center mb-3">
-        <h1 className="text-sm text-slate-900">Created By <a href='https://www.instagram.com/suresh__sk__07' target="_blank">Suresh</a></h1>
+        <h1 className="text-sm text-slate-900">Created By <a href='https://www.instagram.com/suresh__sk__07' rel='noreferrer' target="_blank">Suresh</a></h1>
       </div>
     </div>
     </>
