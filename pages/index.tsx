@@ -19,9 +19,8 @@ const Home = ({ posts }: props) => {
       <div className='flex items-center justify-between border-y border-black-600 bg-yellow-400 py-10 lg:py-0'>
         <div className='space-y-5 px-10'>
           <h1 className='max-w-xl font-serif text-4xl'>
-            <span className='underline decoration-black  decoration-4'>Bolg</span> Is a place to write, read and connect
-          </h1>
-          <h2 className='text-sm'>It's easy and free to post your thinking on any topic and connect with million of readers. </h2>
+            <span className='underline decoration-black  decoration-4'>Bolg</span> Is a place to write, read and connect </h1>
+          <h2 className='text-sm'>Its easy and free to post your thinking on any topic and connect with million of readers. </h2>
         </div>
         <Image className='hidden h-32  md:inline-flex  lg:h-full ' width={250} height={180} src='/images/bolg-logo.png' />
       </div>
