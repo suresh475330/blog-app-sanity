@@ -15,17 +15,18 @@ const Home = ({ posts }: props) => {
 
   return (
     <>
+        <div className='mx-auto max-w-7xl'>
      <Head>
       <title>Blog App</title>
        <meta name="description" content="playing with next-js and typescript and tailwind css  creating the blog app" />
         <link rel="shortcut icon" href="/images/head-logo.png" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
-    <div className='mx-auto max-w-7xl'>
       <Navbar />
-      <div className='flex items-center justify-between border-y border-black-600 bg-yellow-400 py-10 lg:py-0'>
+
+      <div className='flex items-center justify-between border-y border-black bg-yellow-400 py-10 lg:py-0'>
         <div className='space-y-5 px-10'>
-          <h1 className='max-w-xl font-serif text-4xl'>
+          <h1 className='max-w-xl font-serif text-6xl'>
             <span className='underline decoration-black  decoration-4'>Bolg</span> Is a place to write, read and connect </h1>
           <h2 className='text-sm'>It easy and free to post your thinking on any topic and connect with million of readers. </h2>
         </div>
@@ -35,7 +36,7 @@ const Home = ({ posts }: props) => {
       <div className="grid grid-cols-1 gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:grid-cols-3">
           {posts.map((post:Post) => (<Link href={`/post/${post.slug.current.toString()}`} key={post._id}>
             <div className='group cursor-pointer overflow-hidden rounded-lg border'>
-              <img src={urlFor(post.mainImage).url()} alt="poster" />
+              <img className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out' src={urlFor(post.mainImage).url()} alt="poster" />
               <div className="flex justify-between bg-white p-5">
                 <div>
                   <p className="text-lg font-bold ">{post.title}</p>

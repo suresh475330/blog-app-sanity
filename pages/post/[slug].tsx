@@ -25,20 +25,17 @@ const Post = ({post} : Ipost)=>{
     const [submited,setSubmited] = useState<boolean>(false)
 
     const onSubmit:SubmitHandler<IformInput> = async (data)=>{
-     try {
-        const resopnse = await fetch('/api/createComment',{
-          method:"POST",
-          body:JSON.stringify(data)
-      })
-      const some = await resopnse.json()
-      // console.log(some);
-      
-      setSubmited(true)
-      } catch (error) {
-        console.log(error); 
-      setSubmited(false)
 
-      }
+    await fetch('/api/createComment',{
+      method:"POST",
+      body:JSON.stringify(data)
+    }).then(()=>{
+      setSubmited(true)
+
+    }).catch((e)=>{
+      setSubmited(false)
+      console.log(e);
+    })
     }
 
   const { register,
@@ -165,7 +162,7 @@ const Post = ({post} : Ipost)=>{
   {post.comments.map((comment: Comment)=>{
     return(
       <div key={comment._id}>
-       <p><span className='text-yellow-500 font-bold'>{comment.name}</span> : {comment.comment}</p>
+       <p><span className='text-yellow-500 text-xl'>{comment.name}</span> : {comment.comment}</p>
       </div>
     )
   })}

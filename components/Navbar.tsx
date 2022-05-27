@@ -6,10 +6,12 @@ const Navbar: FC = () => {
 
   return (
     <>
-      <header className='sticky top-0 z-50 bg-white mx-auto flex max-w-full justify-between p-5'>
+      <header className='sticky top-0 z-50 md:max-w-7xl bg-white mx-auto flex max-w-full justify-between p-5'>
         <div className='flex items-center space-x-5'>
           <Link href='/'>
+            <a>
           <Image className=" cursor-pointer object-contain" width={35} height={35} src='/images/head-logo.png' alt="logo" />
+            </a>
             {/* <img src="https://cdn-icons-png.flaticon.com/512/60/60736.png" alt="logo"
               className="w-8 cursor-pointer object-contain" /> */}
           </Link>
