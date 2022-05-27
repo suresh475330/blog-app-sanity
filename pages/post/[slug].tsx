@@ -19,7 +19,7 @@ interface IformInput extends UseFormProps{
 }
 
 const Post = ({post} : Ipost)=>{  
-    console.log(post);
+    // console.log(post);
 
     const [submited,setSubmited] = useState<boolean>(false)
 
