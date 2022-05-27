@@ -27,7 +27,7 @@ const Home = ({ posts }: props) => {
         <div className='space-y-5 px-10'>
           <h1 className='max-w-xl font-serif text-4xl'>
             <span className='underline decoration-black  decoration-4'>Bolg</span> Is a place to write, read and connect </h1>
-          <h2 className='text-sm'>It's easy and free to post your thinking on any topic and connect with million of readers. </h2>
+          <h2 className='text-sm'>It easy and free to post your thinking on any topic and connect with million of readers. </h2>
         </div>
         <Image className='hidden h-32  md:inline-flex  lg:h-full ' width={250} height={180} src='/images/bolg-logo.png' />
       </div>
