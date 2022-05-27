@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar';
 import { sanityClient, urlFor } from '../../sanity';
 import { Post ,Comment} from '../../typings'
 import {useForm,SubmitHandler,UseFormProps} from 'react-hook-form'
+import  Head from 'next/head';
 
 interface Ipost {
     post : Post
@@ -30,6 +31,8 @@ const Post = ({post} : Ipost)=>{
           body:JSON.stringify(data)
       })
       const some = await resopnse.json()
+      // console.log(some);
+      
       setSubmited(true)
       } catch (error) {
         console.log(error); 
@@ -44,8 +47,14 @@ const Post = ({post} : Ipost)=>{
        
 
     return(
+      <>
+      <Head>
+<title>Blog App-{post.title}</title>
+ <meta name="description" content="playing with next-js and typescript and tailwind css  creating the blog app" />
+  <link rel="shortcut icon" href="/images/head-logo.png" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+</Head>
        <main>
-          
            <Navbar />
            <img className='h-40 w-full object-cover' src={urlFor(post.mainImage).url()} alt="img" />
           <article className='mx-auto max-w-3xl p-5'>
@@ -164,6 +173,7 @@ const Post = ({post} : Ipost)=>{
 
 
         </main>
+        </>
     )
 }
 

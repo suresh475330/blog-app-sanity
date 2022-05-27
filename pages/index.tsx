@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { sanityClient, urlFor } from '../sanity'
 import { Post } from '../typings.d'
 import Link from 'next/link'
+import Head from 'next/head'
 
 interface props {
   posts: Post[]
@@ -13,6 +14,13 @@ const Home = ({ posts }: props) => {
 
 
   return (
+    <>
+     <Head>
+      <title>Blog App</title>
+       <meta name="description" content="playing with next-js and typescript and tailwind css  creating the blog app" />
+        <link rel="shortcut icon" href="/images/head-logo.png" />
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
     <div className='mx-auto max-w-7xl'>
       <Navbar />
       <div className='flex items-center justify-between border-y border-black-600 bg-yellow-400 py-10 lg:py-0'>
@@ -44,6 +52,7 @@ const Home = ({ posts }: props) => {
         <h1 className="text-sm text-slate-900">Created By <a href='https://www.instagram.com/suresh__sk__07'>Suresh</a></h1>
       </div>
     </div>
+    </>
   )
 }
 
