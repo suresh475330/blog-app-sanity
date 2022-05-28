@@ -53,7 +53,7 @@ const Post = ({post} : Ipost)=>{
 </Head>
        <main>
            <Navbar />
-           <img className='h-40 w-full object-cover' src={urlFor(post.mainImage).url()} alt="img" />
+           <img className='h-40 w-full object-cover' src={post.mainImage ? urlFor(post.mainImage).url() : "https://cdn.pixabay.com/photo/2017/05/30/03/58/blog-2355684_960_720.jpg"} alt="img" />
           <article className='mx-auto max-w-3xl p-5'>
               <h1 className="mt-10 mb-3 text-3xl  ">{post.title}</h1>
               <h2 className="mb-2 text-xl font-light text-gray-500">{post.description}</h2>
@@ -65,8 +65,9 @@ const Post = ({post} : Ipost)=>{
               <span className='text-green-600'>{post.author.name} - published at {new Date(post._createdAt).toLocaleString()}</span></p>
              </div>
              
-              {post.manuscriptURL && <a className= ' mr-10 text-sm  text-red-600 font-bold border rounded p-2' href={`${post.manuscriptURL}?dl=`}>Download pdf</a>}
+              {post.manuscriptURL && <a className= 'mr-10 text-sm  text-red-600 font-bold border rounded p-2 inline-flex items-center shadow hover:scale-105 transition-transform duration-200 ease-in-out' href={`${post.manuscriptURL}?dl=`}><svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg><span> Download pdf</span></a>}
               </div>
+              
              
               <div className="mt-10">
               <PortableText 

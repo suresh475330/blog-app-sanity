@@ -1,12 +1,8 @@
 export interface Post {
     _id: string,
     _createdAt : string,
-    // manuscript : {
-    //     asset : {
-    //      _ref : string
-    //     }
-    // },
     manuscriptURL: string,
+    categories:string,
     title : string,
     author : {
         name : string,
