@@ -10,6 +10,11 @@ export interface Post {
             asset : {
                 url : string
             }
+
+        },
+        slug : {
+            _type:string,
+            current:string
         }
     },
     comments:Comment[],
@@ -37,4 +42,36 @@ export interface Comment {
    post:{
        _ref:string
    }
+}
+
+export interface Author {
+        author: [
+            {
+                bio: [
+                    {
+                        _key: string,
+                        _type: string,
+                        children: [
+                            {
+                                _key: string,
+                                _type: string,
+                                marks: [],
+                                text: string
+                            }
+                        ],
+                        markDefs: [],
+                        style: string,
+                    }
+                ],
+                image: {
+                    _type: string,
+                    asset: {
+                        _ref: string,
+                        _type: string,
+                    }
+                },
+                name: string
+            }
+        ]
+
 }

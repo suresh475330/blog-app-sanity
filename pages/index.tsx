@@ -21,6 +21,7 @@ const Home = ({ posts }: props) => {
    const filterList =  posts.filter((x)=> x.categories === cat)
     setBlogs(filterList)
   }
+  
  
 
   return (
@@ -57,19 +58,26 @@ const Home = ({ posts }: props) => {
       </div>
 
       <div className="grid grid-cols-1 gap-3 p-2 sm:grid-cols-2 md:gap-6 md:p-6 lg:grid-cols-3">
-          {blogs.map((post:Post) => (<Link href={`/post/${post.slug.current.toString()}`} key={post._id}>
-            <div className='group cursor-pointer overflow-hidden rounded-lg border'>
-
+          {blogs.map((post:Post) => (
+            <div key={post._id} className='group cursor-pointer overflow-hidden rounded-lg border'>
+               <Link href={`/post/${post.slug.current.toString()}`} key={post._id}>
+             <a>
               <img className='h-60 w-full object-cover group-hover:scale-105 transition-transform duration-200 ease-in-out' src={post.mainImage ? urlFor(post.mainImage).url() : "https://cdn.pixabay.com/photo/2012/05/07/18/57/blog-49006_960_720.png"} alt="poster" />
+             </a>
+              </Link>
               <div className="flex justify-between bg-white p-5">
                 <div>
                   <p className="text-lg font-bold ">{post.title}</p>
                   <p className="text-xs">{post.description} by {post.author.name}</p>
                 </div>
+                <Link href={`/author/${post.author.slug.current.toString()}`}>
+                <a>
                 <img src={urlFor(post.author.image).url()} alt="author" className='h-12 w-12 rounded-full' />
+                </a>
+                </Link>
               </div>
             </div>          
-            </Link>))}
+            ))}
 
       </div>
       <hr className=" mx-auto border border-yellow-500 my-5  max-w-sm md:max-w-2xl" />
@@ -93,7 +101,8 @@ export const getServerSideProps = async () => {
       slug,
       author->{
       name,
-      image
+      image,
+      slug
     },
     mainImage,
     description,

@@ -7,6 +7,7 @@ import { sanityClient, urlFor } from '../../sanity';
 import { Post ,Comment} from '../../typings'
 import {useForm,SubmitHandler,UseFormProps} from 'react-hook-form'
 import  Head from 'next/head';
+import Link from 'next/link'
 
 interface Ipost {
     post : Post
@@ -60,7 +61,11 @@ const Post = ({post} : Ipost)=>{
               
               <div className="flex items-center justify-between space-x-2">
              <div className='flex items-center space-x-2'>
+             <Link href={`/author/${post.author.slug.current.toString()}`}>
+             <a>
               <img className='w-10 h-10 rounded-full' src={urlFor(post.author.image).url()} alt="img" />
+             </a>
+             </Link>
               <p className="text-sm font-extralight">Blog post by{' '}
               <span className='text-green-600'>{post.author.name} - published at {new Date(post._createdAt).toLocaleString()}</span></p>
              </div>
@@ -101,7 +106,7 @@ const Post = ({post} : Ipost)=>{
         
         {
           submited ? (
-            <div className='my-5 mx-auto flex max-w-md md:max-w-2xl flex-col bg-yellow-500 p-10 text-white'>
+            <div onClick={()=> setSubmited(!submited)} className='my-5 mx-auto flex max-w-md md:max-w-2xl flex-col bg-yellow-500 p-10 text-white'>
               <h3 className='text-3xl font-bold'>Thank you for submiting your comment!</h3>
             <p>Done it has been approved, it will below!</p>
             </div>
@@ -163,7 +168,11 @@ const Post = ({post} : Ipost)=>{
   {post.comments.map((comment: Comment)=>{
     return(
       <div key={comment._id}>
+      <div className='flex items-center justify-between'>
        <p><span className='text-yellow-500 text-xl'>{comment.name}</span> : {comment.comment}</p>
+       <p className='text-sm font-extralight'> Created at :<span className='text-green-600'>{new Date(comment._createdAt).toLocaleString()}</span> </p>
+      </div>
+      <hr />
       </div>
     )
   })}
@@ -187,7 +196,8 @@ const queryDb = `*[_type=="post" && slug.current== $slug][0]{
     slug,
     author->{
     name,
-    image
+    image,
+    slug
   },
   "comments" : *[
     _type == "comment" &&
