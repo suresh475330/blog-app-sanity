@@ -11,7 +11,7 @@ const Navbar: FC = () => {
       <div className='md:hidden p-4 w-200 bg-white rounded-lg fixed top-24 right-7 flex flex-col items-center justify-evenly gap-5'>
        <Link href='/about'><a> <h3 onClick={()=> setActive(false)} className='cursor-pointer hover:scale-105 transition-transform duration-200 ease-in-out'>About</h3></a></Link>
        <Link href='/contact'><a> <h3 onClick={()=> setActive(false)} className='cursor-pointer  hover:scale-105 transition-transform duration-200 ease-in-out'>Contact</h3></a></Link>
-        <a href='https://www.instagram.com/suresh__sk__07' target="_blank" >   <h3 onClick={()=> setActive(false)} className='cursor-pointer rounded-full bg-green-600 px-4 py-1 text-white  hover:scale-105 transition-transform duration-200 ease-in-out'>Follow</h3></a>
+        <a href='https://www.instagram.com/suresh__sk__07'  rel='noopener' target="_blank" >   <h3 onClick={()=> setActive(false)} className='cursor-pointer rounded-full bg-green-600 px-4 py-1 text-white  hover:scale-105 transition-transform duration-200 ease-in-out'>Follow</h3></a>
         <h3 onClick={()=> setActive(false)} className='cursor-pointer  hover:scale-105 transition-transform duration-200 ease-in-out'>Sign IN</h3>
         <h3 onClick={()=> setActive(false)} className='cursor-pointer rounded-full border border-green-600 px-4 py-1  hover:scale-105 transition-transform duration-200 ease-in-out'>Get Started</h3>
       </div>
@@ -33,7 +33,7 @@ const Navbar: FC = () => {
           <div className='hidden md:items-center space-x-5 md:inline-flex '>
            <Link href='/about'><a> <h3 className='cursor-pointer'>About</h3></a></Link>
            <Link href='/contact'><a> <h3 className='cursor-pointer'>Contact</h3></a></Link>
-          <a href='https://www.instagram.com/suresh__sk__07' target="_blank" > <h3 className='rounded-full bg-green-600 px-4 py-1 text-white cursor-pointer'>Follow</h3></a>
+          <a href='https://www.instagram.com/suresh__sk__07'  rel='noopener' target="_blank" > <h3 className='rounded-full bg-green-600 px-4 py-1 text-white cursor-pointer'>Follow</h3></a>
           </div>
 
         </div>

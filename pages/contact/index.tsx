@@ -187,7 +187,7 @@ const Contact = ()=>{
           ></path>
         </svg>
       </a>
-      <a href="https://www.instagram.com/suresh__sk__07" target="_blank" className="mr-9 text-gray-800">
+      <a href="https://www.instagram.com/suresh__sk__07" rel='noopener' target="_blank" className="mr-9 text-gray-800">
         <svg
           aria-hidden="true"
           focusable="false"
@@ -221,7 +221,7 @@ const Contact = ()=>{
           ></path>
         </svg>
       </a>
-      <a href="https://github.com/suresh475330" target="_blank" className="text-gray-800">
+      <a href="https://github.com/suresh475330"  rel='noopener' target="_blank" className="text-gray-800">
         <svg
           aria-hidden="true"
           focusable="false"
